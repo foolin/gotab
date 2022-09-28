@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/mattn/go-runewidth"
 	"strings"
+	"unicode/utf8"
 )
 
 func StrWidth(str string) int {
@@ -19,8 +20,15 @@ func StrTruncate(s string, w int, tail string) string {
 }
 
 func StrPadding(s, pad string, width int) string {
+	fmt.Println("W", StrWidth(s), "L", len(s), "R", utf8.RuneCountInString(s))
+	//sw := StrWidth(s)
+	//rw := utf8.RuneCountInString(s)
+	//if sw > rw {
+	//	width = width - (sw - rw)
+	//}
 	//func Align(s, pad string, width int) string {
 	format := fmt.Sprint("%-", width, "v")
+	println("format: ", format)
 	return fmt.Sprintf(format, s)
 }
 

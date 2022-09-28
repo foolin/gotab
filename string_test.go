@@ -2,7 +2,10 @@
 
 package gotab
 
-import "testing"
+import (
+	"testing"
+	"unicode/utf8"
+)
 
 var cases = []string{
 	"Hello",
@@ -23,14 +26,17 @@ func TestStrWidth(t *testing.T) {
 	for _, s := range cases {
 		println(s, "W:", StrWidth(s))
 		println(s, "L:", len(s))
+		println(s, "R:", utf8.RuneCountInString(s))
 	}
 }
 
 func TestStrPadding(t *testing.T) {
-	println(StrPadding("Hello", "-", 12) + "|")
-	println(StrPadding("Hello, World", "-", 12) + "|")
-	println(StrPadding("Hello，世界", "-", 12) + "|")
-	println(StrPadding("您好，世界", "-", 12) + "|")
+	n := 3
+	println(StrPadding("Hello", "-", 12+n) + "|")
+	println(StrPadding("Hello, World", "-", 12+n) + "|")
+	println(StrPadding("Hello，世界", "-", 10+n) + "|")
+	println(StrPadding("您好，世界", "-", 9+n) + "|")
+	println(StrPadding("您好中世界", "-", 9+n) + "|")
 }
 
 func TestStrPadding2(t *testing.T) {
