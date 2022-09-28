@@ -34,6 +34,8 @@ func TestStrPadding(t *testing.T) {
 	n := 3
 	println(StrPadding("Hello", "-", 12+n) + "|")
 	println(StrPadding("Hello, World", "-", 12+n) + "|")
+	println(StrPadding("Hello界", "-", 12+n) + "|")
+	println(StrPadding("Hello世界", "-", 11+n) + "|")
 	println(StrPadding("Hello，世界", "-", 10+n) + "|")
 	println(StrPadding("您好，世界", "-", 9+n) + "|")
 	println(StrPadding("您好中世界", "-", 9+n) + "|")
