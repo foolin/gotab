@@ -7,8 +7,8 @@ import (
 	"testing"
 )
 
-const summaryEn = "Gotab is a golang library for console/writer output formatting and alignment text."
-const summaryCn = "Gotab是用于控制台/编写器输出格式和对齐文本的golang库"
+const summaryEn = "Gotab is a go library for align text"
+const summaryCn = "Gotab是控制台对齐的go库"
 
 func TestPrintTable(t *testing.T) {
 	writer := NewWriter()
@@ -34,8 +34,6 @@ func TestPrintTable(t *testing.T) {
 func TestPrintTable2(t *testing.T) {
 	writer := NewWriter()
 	writer.Config.Split = "|"
-	v1 := "Cobra supports local flags which will only run when this command"
-	writer.AddLine("A", v1)
 	writer.AddDivider()
 	data := [][]any{
 		{"node2.example.com", "Ready", "1.12", "1.12"},
@@ -46,8 +44,8 @@ func TestPrintTable2(t *testing.T) {
 	}
 	writer.AddLines(data...)
 	writer.AddDividerWithValue("-----------------")
-	writer.AddLine("NotReady2", "ABC", v1)
-	writer.AddLine("NotReady2", v1, "EDF")
+	writer.AddLine("NotReady2", "ABC", summaryEn)
+	writer.AddLine("NotReady2", summaryCn, "EDF")
 	writer.Print()
 }
 
@@ -57,7 +55,7 @@ func TestPrintTable3(t *testing.T) {
 	writer.AddLine("A", summaryEn)
 	writer.AddLine("Hello, 世界", summaryEn)
 	writer.AddLine("您好, 世界", summaryEn)
-	writer.AddDivider()
+	//writer.AddDivider()
 	data := [][]any{
 		{"node2.example.com", "Ready", "1.12", "1.12"},
 		{"node3.example.com", "Ready", "compute", "1.13"},

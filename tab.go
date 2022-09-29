@@ -67,7 +67,9 @@ func (r *TabWriter) AddDivider() *TabWriter {
 }
 
 func (r *TabWriter) AddDividerWithValue(div Divider) *TabWriter {
-	r.groupIndex++
+	if len(r.groupData) > 0 {
+		r.groupIndex++
+	}
 	r.lastData().Div = div
 	return r
 }
