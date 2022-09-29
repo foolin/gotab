@@ -6,11 +6,8 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"regexp"
 	"strings"
 )
-
-var ansi = regexp.MustCompile("\033\\[(?:[0-9]{1,3}(?:;[0-9]{1,3})*)?[m|K]")
 
 type TabWriter struct {
 	io.Writer
@@ -134,7 +131,7 @@ func (r *TabWriter) Print() {
 					value = StrTruncate(value, maxWidth, config.Ellipsis)
 					width = maxWidth
 				}
-				padValue := StrPadding(value, config.Pad, width)
+				padValue := Padding(value, config.Pad, width)
 				if ok && n < (size-1) {
 					fmt.Fprintf(writer, " %s %s", padValue, config.Split)
 				} else {

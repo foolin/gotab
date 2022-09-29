@@ -31,25 +31,21 @@ func TestStrWidth(t *testing.T) {
 }
 
 func TestStrPadding(t *testing.T) {
-	n := 3
-	println(StrPadding("Hello", "-", 12+n) + "|")
-	println(StrPadding("Hello, World", "-", 12+n) + "|")
-	println(StrPadding("Hello界", "-", 12+n) + "|")
-	println(StrPadding("Hello世界", "-", 11+n) + "|")
-	println(StrPadding("Hello，世界", "-", 10+n) + "|")
-	println(StrPadding("您好，世界", "-", 9+n) + "|")
-	println(StrPadding("您好中世界", "-", 9+n) + "|")
+	n := 24
+	println(Padding("Hello", "-", 12+n) + "|")
+	println(Padding("Hello, World", "-", 12+n) + "|")
+	println(Padding("Hello界", "-", 12+n) + "|")
+	println(Padding("Hello世界", "-", 11+n) + "|")
+	println(Padding("Hello，世界", "-", 10+n) + "|")
+	println(Padding("您好，世界", "-", 9+n) + "|")
+	println(Padding("您好中世界", "-", 9+n) + "|")
 }
 
 func TestStrPadding2(t *testing.T) {
-	for _, s := range cases {
-		println(s, "W:", StrWidth(s))
-		println(s, "L:", len(s))
-	}
-	for i := 23; i < 30; i++ {
+	for i := 14; i < 30; i++ {
 		println("\n\n------ Width:", i, " ------")
 		for _, s := range cases {
-			println(StrPadding(s, "-", i) + "|")
+			println(Padding(s, "-", i) + "|")
 		}
 
 	}

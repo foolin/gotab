@@ -14,8 +14,8 @@ func TestPrintTable(t *testing.T) {
 	writer := NewWriter()
 	writer.Config.Split = "|"
 	writer.AddLine("Hello, World", summaryEn)
-	writer.AddLine("Hello，世界", summaryEn)
-	writer.AddLine("您好, 世界", summaryCn)
+	writer.AddLine("Hello，世A界B", summaryEn)
+	writer.AddLine("您好,NI世界ABC", summaryCn)
 	writer.AddDivider()
 	data := [][]any{
 		{"node2.example.com", "Ready", "1.12", "1.12"},
