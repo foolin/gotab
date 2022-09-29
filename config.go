@@ -9,6 +9,7 @@ type TabConfig struct {
 	Ellipsis string
 	MinWiths []int
 	MaxWiths []int
+	UseTab   bool
 }
 
 var DefaultConfig = TabConfig{
@@ -18,4 +19,5 @@ var DefaultConfig = TabConfig{
 	Ellipsis: "...",
 	MinWiths: []int{},
 	MaxWiths: []int{},
+	UseTab:   false,
 }

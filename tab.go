@@ -133,7 +133,13 @@ func (r *TabWriter) Print() {
 					value = StrTruncate(value, maxWidth, config.Ellipsis)
 					width = maxWidth
 				}
-				padValue := Padding(value, config.Pad, width)
+				var padValue string
+				if r.Config.UseTab {
+					padValue = PaddingTab(value, config.Pad, width)
+				} else {
+					padValue = Padding(value, config.Pad, width)
+				}
+
 				if ok && n < (size-1) {
 					fmt.Fprintf(writer, " %s %s", padValue, config.Split)
 				} else {
